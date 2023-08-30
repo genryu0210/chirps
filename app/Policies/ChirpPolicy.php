@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Chirp;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Symfony\Component\Console\Descriptor\ReStructuredTextDescriptor;
 
 class ChirpPolicy
 {
@@ -45,7 +46,7 @@ class ChirpPolicy
      */
     public function delete(User $user, Chirp $chirp): bool
     {
-        //
+        return $this->update($user, $chirp);
     }
 
     /**
